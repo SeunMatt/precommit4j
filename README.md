@@ -1,6 +1,6 @@
 # PreCommit4J
 
-This projects provides useful pre-commit hooks for your projects. 
+This project provides useful pre-commit hooks for your projects. 
 
 ## Checkstyle
 
@@ -13,7 +13,17 @@ than the default easily.
 
 ## Usage
 
-
+```yaml
+  - repo: https://github.com/SeunMatt/precommit4j
+    rev: v0.1.0
+    hooks:
+      - id: checkstyle
+        exclude: |
+          (?x)^(
+                 .*/test/.*
+            )$
+        args: [ "-c", "checkstyle.xml"]
+```
 
 ## Development
 
@@ -24,7 +34,7 @@ and then run `bundle exec rake release`, which will create a git tag for the ver
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/SeunMatt/precommit4j.
+Bug reports and pull requests are welcome on GitHub at https://github.com/SeunMatt/precommit4j.git.
 
 ## License
 
