@@ -1,0 +1,6 @@
+-   id: checkstyle
+    name: Checkstyle
+    description: Run Checkstyle validations
+    entry: checkstyle
+    language: ruby
+    files: \.java$

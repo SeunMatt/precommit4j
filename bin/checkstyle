@@ -1,0 +1,7 @@
+#!/usr/bin/env ruby
+
+require "bundler/setup"
+require "precommit4j/checkstyle/executor"
+
+status = PreCommit4J::CheckStyle::Executor.new.execute
+exit(status)
