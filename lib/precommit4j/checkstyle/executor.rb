@@ -14,11 +14,18 @@ module PreCommit4J
             parser.on("-d", "--debug", "Optional: Enable the debug of checkstyle.jar as part of output")
             parser.on("-E", "--executeIgnoredModules", "Optional: Allows ignored checkstyle modules to be run")
           end.parse!(into: cli_options)
+
+          unless cli_options.include?(:c)
+            puts "Missing require args -c. Ensure it is passed in the pre-commit-config.yaml of your project"
+            return false
+          end
+
           invoke_checkstyle_jar(cli_options, ARGV)
+
         end
 
         def invoke_checkstyle_jar(cli_options, files)
-          jar_file = cli_options.include?(:jar) ? cli_options[:jar] : File.expand_path("../../../../checkstyle.jar", __FILE__)
+          jar_file = cli_options.include?(:jar) ? cli_options[:jar] : File.expand_path("../../../checkstyle.jar", __FILE__)
           checkstyle_options = "-c #{cli_options[:c]}"
           checkstyle_options = checkstyle_options + " -d " if cli_options[:debug]
           checkstyle_options = checkstyle_options + " -E " if cli_options[:executeIgnoredModules]

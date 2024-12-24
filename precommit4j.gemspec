@@ -11,7 +11,7 @@ Gem::Specification.new do |spec|
 
   spec.summary       = %q{A pre-commit hook for running the checkstyle validation}
   spec.description   = %q{A pre-commit hook for running the checkstyle validation}
-  spec.homepage      = "https://github.com/SeunMatt/pre-commit-checkstyle"
+  spec.homepage      = "https://github.com/SeunMatt/precommit4j"
   spec.license       = "MIT"
 
   # Prevent pushing this gem to RubyGems.org. To allow pushes either set the 'allowed_push_host'
