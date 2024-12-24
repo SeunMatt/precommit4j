@@ -3,4 +3,5 @@
     description: Run Checkstyle validations
     entry: checkstyle
     language: ruby
+    require_serial: true
     files: \.java$
