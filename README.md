@@ -8,10 +8,20 @@ The Checkstyle hook enables you to validate your Java source code using [checkst
 
 This integration is unique in the sense that it does not require Docker and thus is lightweight to run on any local machine.
 
-Moreover, it allows you to explicitly provide the path for checkstyle.jar file which allows you to use newer versions
-than the default easily.
+Furthermore, it allows you to use newer versions of the Checkstyle by availing option to provide the path for the jar file.
+
+## Requirements
+
+Your host machine or system should have Java installed. 
+
+A minimum of Java 11 is required for the default Checkstyle jar.
+
+If you use a Java version lower than 11, you'll need to download a suitable Checkstyle jar 
+and provide the full path as an argument to the `checkstyle` hook.
 
 ## Usage
+
+Add the following to the `.pre-commit-config.yaml` of your application
 
 ```yaml
   - repo: https://github.com/SeunMatt/precommit4j
@@ -25,16 +35,29 @@ than the default easily.
         args: [ "-c", "checkstyle.xml"]
 ```
 
+If you want to provide a path to a checkstyle jar of your choice, you can add the `--jar path/to/jar/file` argument:
+
+```yaml
+  - repo: https://github.com/SeunMatt/precommit4j
+    rev: v0.1.0
+    hooks:
+      - id: checkstyle
+        exclude: |
+          (?x)^(
+                 .*/test/.*
+            )$
+        args: [ "-c", "checkstyle.xml", "--jar", "path/to/jar/file"]
+```
+
 ## Development
 
-After checking out the repo, run `bin/setup` to install dependencies.
+This project is written with Ruby. After checking out the repo, run `bin/setup` to install dependencies.
 
-To install this gem onto your local machine, run `bundle exec rake install`. To release a new version, update the version number in `version.rb`, 
-and then run `bundle exec rake release`, which will create a git tag for the version, push git commits and tags, and push the `.gem` file to [rubygems.org](https://rubygems.org).
+To install this gem onto your local machine, run `bundle exec rake install`. 
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/SeunMatt/precommit4j.git.
+Bug reports, and pull requests are welcome on GitHub at https://github.com/SeunMatt/precommit4j.git.
 
 ## License
 
