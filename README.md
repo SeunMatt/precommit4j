@@ -51,13 +51,21 @@ If you want to provide a path to a checkstyle jar of your choice, you can add th
 
 ## Development
 
-This project is written with Ruby. After checking out the repo, run `bin/setup` to install dependencies.
+This project is written with Ruby. Ensure you have Ruby 3.4.1+ installed. 
+
+If you encounter compilation errors when installing Ruby on macOS via RVM. 
+Ensure you have a [compatible version of openssl](https://www.rubyonmac.dev/openssl-versions-supported-by-ruby) 
+installed on your machine. 
+
+Afterwards, you can run `rvm install ruby 3.4.1 --with-openssl-dir=$(brew --prefix openssl@3)`.
+
+After checking out the repo, run `bin/setup` to install dependencies.
 
 To install this gem onto your local machine, run `bundle exec rake install`. 
 
 ## Contributing
 
-Bug reports, and pull requests are welcome on GitHub at https://github.com/SeunMatt/precommit4j.git.
+Bug reports and pull requests are welcome on GitHub at https://github.com/SeunMatt/precommit4j.git.
 
 ## License
 
