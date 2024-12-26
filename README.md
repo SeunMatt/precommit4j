@@ -12,12 +12,11 @@ Furthermore, it allows you to use newer versions of the Checkstyle by availing o
 
 ## Requirements
 
-Your host machine or system should have Java installed. 
-
-A minimum of Java 11 is required for the default Checkstyle jar.
+- Java 11+
+- Ruby (tested with CRuby interpreter and preferably v2.5+)
 
 If you use a Java version lower than 11, you'll need to download a suitable Checkstyle jar 
-and provide the full path as an argument to the `checkstyle` hook.
+and provide the full path as an argument to the `checkstyle` hook—see usage section below.
 
 ## Usage
 
