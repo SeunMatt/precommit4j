@@ -10,7 +10,7 @@ This integration is unique in the sense that it does not require Docker and thus
 
 Furthermore, it allows you to use newer versions of the Checkstyle by availing option to provide the path for the jar file.
 
-## Requirements
+### Requirements
 
 - Java 11+
 - Ruby (tested with CRuby interpreter and preferably v2.5+)
@@ -18,13 +18,13 @@ Furthermore, it allows you to use newer versions of the Checkstyle by availing o
 If you use a Java version lower than 11, you'll need to download a suitable Checkstyle jar 
 and provide the full path as an argument to the `checkstyle` hook—see usage section below.
 
-## Usage
+### Usage
 
 Add the following to the `.pre-commit-config.yaml` of your application
 
 ```yaml
   - repo: https://github.com/SeunMatt/precommit4j
-    rev: v0.1.0
+    rev: v1.0.0
     hooks:
       - id: checkstyle
         exclude: |
@@ -48,7 +48,7 @@ If you want to provide a path to a checkstyle jar of your choice, you can add th
         args: [ "-c", "checkstyle.xml", "--jar", "path/to/jar/file"]
 ```
 
-## Development
+# Development
 
 This project is written with Ruby. Ensure you have Ruby 3.4.1+ installed. 
 
@@ -62,10 +62,10 @@ After checking out the repo, run `bin/setup` to install dependencies.
 
 To install this gem onto your local machine, run `bundle exec rake install`. 
 
-## Contributing
+# Contributing
 
 Bug reports and pull requests are welcome on GitHub at https://github.com/SeunMatt/precommit4j.git.
 
-## License
+# License
 
 The gem is available as open source under the terms of the [MIT License](https://opensource.org/licenses/MIT).
