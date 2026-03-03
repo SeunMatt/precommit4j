@@ -2,6 +2,7 @@
     name: Checkstyle
     description: Run Checkstyle validations
     entry: checkstyle
-    language: ruby
+    language: python
     require_serial: true
     files: \.java$
+    types: [java]

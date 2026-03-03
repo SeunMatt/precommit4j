@@ -9,4 +9,4 @@
 /tmp/
 *.gem
 *.*DS_Store
-vendor/
+precommit4j.egg-info/

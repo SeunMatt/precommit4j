@@ -8,23 +8,14 @@ The Checkstyle hook enables you to validate your Java source code using [checkst
 
 This integration is unique in the sense that it does not require Docker and thus is lightweight to run on any local machine.
 
-Furthermore, it allows you to use newer versions of the Checkstyle by availing option to provide the path for the jar file.
+Moreover, it allows you to explicitly provide the path for checkstyle.jar file which allows you to use newer versions
+than the default easily.
 
-### Requirements
-
-- Java 11+
-- Ruby (tested with CRuby interpreter and preferably v2.5+)
-
-If you use a Java version lower than 11, you'll need to download a suitable Checkstyle jar 
-and provide the full path as an argument to the `checkstyle` hook—see usage section below.
-
-### Usage
-
-Add the following to the `.pre-commit-config.yaml` of your application
+## Usage
 
 ```yaml
   - repo: https://github.com/SeunMatt/precommit4j
-    rev: v1.0.0
+    rev: v2.0.0
     hooks:
       - id: checkstyle
         exclude: |
@@ -34,38 +25,31 @@ Add the following to the `.pre-commit-config.yaml` of your application
         args: [ "-c", "checkstyle.xml"]
 ```
 
-If you want to provide a path to a checkstyle jar of your choice, you can add the `--jar path/to/jar/file` argument:
+## Development
 
-```yaml
-  - repo: https://github.com/SeunMatt/precommit4j
-    rev: v0.1.0
-    hooks:
-      - id: checkstyle
-        exclude: |
-          (?x)^(
-                 .*/test/.*
-            )$
-        args: [ "-c", "checkstyle.xml", "--jar", "path/to/jar/file"]
-```
+The plugin is now built with Python script and expects you to have Python v3+ on your local machine.
 
-# Development
+To install the Python package onto your local machine, run ` pipx install -e .`. 
 
-This project is written with Ruby. Ensure you have Ruby 3.4.1+ installed. 
+To release a new version: 
+- Update the version number in `__init__.py`
+- Create a git tag for the version using `git tag v2.x.x`
+- Push the git tags `git push --tags`
+- Run the build `python3 -m build`
+- Upload the distribution using `twine upload dist/*` which will upload the distribution to https://pypi.org
 
-If you encounter compilation errors when installing Ruby on macOS via RVM. 
-Ensure you have a [compatible version of openssl](https://www.rubyonmac.dev/openssl-versions-supported-by-ruby) 
-installed on your machine. 
-
-Afterwards, you can run `rvm install ruby 3.4.1 --with-openssl-dir=$(brew --prefix openssl@3)`.
-
-After checking out the repo, run `bin/setup` to install dependencies.
-
-To install this gem onto your local machine, run `bundle exec rake install`. 
-
-# Contributing
+## Contributing
 
 Bug reports and pull requests are welcome on GitHub at https://github.com/SeunMatt/precommit4j.git.
 
-# License
+## License
 
-The gem is available as open source under the terms of the [MIT License](https://opensource.org/licenses/MIT).
+The Python package is available as open source under the terms of the [MIT License](https://opensource.org/licenses/MIT).
+
+## CHANGE LOG
+
+### v2.0.0
+- Switched from using Ruby on Rails to Python to reduce the dependencies required when using it in a CI/CD pipeline
+
+### v1.0.0
+- The initial version
