@@ -1,7 +1,12 @@
+import importlib.resources
 import subprocess
 import sys
-from pathlib import Path
 
+
+def get_packaged_jar():
+    return importlib.resources.files(
+        "precommit4j.resources"
+    ).joinpath("checkstyle.jar")
 
 def run_checkstyle(config, jar=None, debug=False, execute_ignored=False, files=None):
     if files is None:
@@ -10,8 +15,7 @@ def run_checkstyle(config, jar=None, debug=False, execute_ignored=False, files=N
     if jar:
         jar_file = jar
     else:
-        script_dir = Path(__file__).resolve().parent
-        jar_file = script_dir.joinpath("./checkstyle.jar").resolve()
+        jar_file = get_packaged_jar()
 
     command = ["java", "-jar", str(jar_file), "-c", config]
 
