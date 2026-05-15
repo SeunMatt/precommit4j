@@ -27,12 +27,17 @@ than the default easily.
 
 ## Development
 
-The plugin is now built with Python script and expects you to have Python v3+ on your local machine.
+The plugin is now built with Python and expects you to have Python v3+ on your local machine.
 
-To install the Python package onto your local machine, run ` pipx install -e .`. 
+To install the Python package onto your local machine, run `pip3 install -e .` 
+Use `pip3 install .` to install it in non-editable mode. This is closest to how it will be installed on 
+end-users machine.
+
+To uninstall the Python package, run `pip3 uninstall precommit4j`
+
 
 To release a new version: 
-- Update the version number in `__init__.py`
+- Update the version number in `__init__.py` and [pyproject.toml](pyproject.toml)
 - Create a git tag for the version using `git tag v2.x.x`
 - Push the git tags `git push --tags`
 - Run the build `python3 -m build`

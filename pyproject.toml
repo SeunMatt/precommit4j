@@ -4,14 +4,14 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "precommit4j"
-version = "2.0.0"
+version = "2.1.0"
 description = "A pre-commit hook wrapper for checkstyle.jar"
 authors = [{ name="Seun Matt" }]
 readme = "README.md"
 requires-python = ">=3.8"
 
 [project.scripts]
-checkstyle = "precommit4j.cli:main"
+precommit4j = "precommit4j.cli:main"
 
 [tool.setuptools.package-data]
-precommit4j = ["resources/*.jar"]
+precommit4j = ["resources/checkstyle.jar"]
