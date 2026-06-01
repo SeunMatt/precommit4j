@@ -17,6 +17,9 @@ def run_checkstyle(config, jar=None, debug=False, execute_ignored=False, files=N
     else:
         jar_file = get_packaged_jar()
 
+    if debug:
+        print(f"Jar file path: ${jar_file}")
+
     command = ["java", "-jar", str(jar_file), "-c", config]
 
     if debug:
