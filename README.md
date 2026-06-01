@@ -15,7 +15,7 @@ than the default easily.
 
 ```yaml
   - repo: https://github.com/SeunMatt/precommit4j
-    rev: v2.0.0
+    rev: v2.2.0
     hooks:
       - id: checkstyle
         exclude: |
@@ -52,6 +52,9 @@ Bug reports and pull requests are welcome on GitHub at https://github.com/SeunMa
 The Python package is available as open source under the terms of the [MIT License](https://opensource.org/licenses/MIT).
 
 ## CHANGE LOG
+
+### v2.2.0
+- Fixed bug on Windows machine where the packaged checkstyle.jar is not found
 
 ### v2.0.0
 - Switched from using Ruby on Rails to Python to reduce the dependencies required when using it in a CI/CD pipeline
